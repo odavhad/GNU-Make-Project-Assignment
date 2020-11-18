@@ -10,4 +10,4 @@ myrec.out: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 clean:
-	$(RM) myrec *.o *~
+	$(RM) myrec.out *.o *~
