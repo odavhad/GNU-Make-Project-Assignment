@@ -1,27 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include "record_struct.h"
+#include <string.h>
+#include <stdbool.h>
+#include "record_struct.h"
 #include "read_rec.h"
 
-// void readRec(const char filename[], struct record* data) {
-//     FILE* filepointer;
-//     char filetext[100];
-
-//     filepointer = fopen(filename, "r");
-//     if (filepointer == NULL) {
-//         perror("Error");
-//         return;
-//     }
-
-//     fclose(filepointer);
-
-//     data->length = 1;
-// }
-
-void readRec(const char filename[]) {
+void readRec(const char filename[], struct record* data) {
     FILE* filepointer;
-    char filetext[100], temp;
-    int index = 0;
+    char filetext[10000], temp, filedata[200][100];
+    int index = 0, tempIndex, length;
+    struct student tempStudent;
 
     filepointer = fopen(filename, "r");
     if (filepointer == NULL) {
@@ -38,8 +26,29 @@ void readRec(const char filename[]) {
         filetext[index] = temp;
         index++;
     }
-
     fclose(filepointer);
+    
+    length = index;
+    index = 0;
+    tempIndex = 0;
+    for (int i = 0; i < length; i++) {
+        if (filetext[i] == 44) {
+            index++;
+            tempIndex = 0;
+        } else if (filetext[i] != 32 && filetext[i] != 10) {
+            filedata[index][tempIndex] = filetext[i];
+            tempIndex++;   
+        }
+    }
 
-    printf("%s\n", filetext);
+    length = index;
+    for (int i = 0; i < length; i++) {
+        if (i % 2 == 0) {
+            strcpy(tempStudent.name, filedata[i]);
+        } else {
+            tempStudent.age = atoi(filedata[i]);
+            data->array[data->length] = tempStudent;
+            data->length++;
+        }
+    }
 }

@@ -14,7 +14,6 @@
  * filename: the name of the text file containing student records
  * data    : the variable to store the records read from text file
  */
-// void readRec(const char filename[], struct record* data);
-void readRec(const char filename[]);
+void readRec(const char filename[], struct record* data);
 
 #endif

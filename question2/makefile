@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -I.
-DEPS = read_rec.h
+CFLAGS = -w -g -I.
+DEPS = read_rec.h record_struct.h
 OBJ = read_rec.c main.o 
 
 %.o: %.c $(DEPS)
