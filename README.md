@@ -18,4 +18,4 @@
 	+ DisplayRec()
 	+ SortRec()
 	
-	Write a Makefile to compile and link these three C source files and produce a final binarymyrec. Build the program in Linux environment using GNU Compiler Collection (GCC).
+	Write a Makefile to compile and link these three C source files and produce a final binary myrec. Build the program in Linux environment using GNU Compiler Collection (GCC).
