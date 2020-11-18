@@ -12,9 +12,12 @@ int main(void) {
     printf("Enter the filename: ");
     scanf("%s", filename);
     readRec(filename, &data);
+    
     printf("Student records:\n");
     displayRec(data);
+    
     sortRec(&data);
+    
     printf("\n\nSorted student records:\n");
     displayRec(data);
 
