@@ -6,11 +6,11 @@
 #include "record_struct.h"
 
 int main(void) {
-    char filename[100] = "data.csv";
+    char filename[100];
     struct record data = {.length = 0};
 
-    // printf("Enter the filename: ");
-    // scanf("%s", filename);
+    printf("Enter the filename: ");
+    scanf("%s", filename);
     readRec(filename, &data);
     printf("Student records:\n");
     displayRec(data);
