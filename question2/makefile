@@ -6,8 +6,8 @@ OBJ = read_rec.c display_rec.c sort_rec.c main.c
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-myrec.out: $(OBJ)
+myrec: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
 
 clean:
-	$(RM) myrec.out *.o *~
+	$(RM) myrec *.o *~
