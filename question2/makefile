@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -w -g -I.
-DEPS = read_rec.h record_struct.h
-OBJ = read_rec.c main.o 
+DEPS = record_struct.h read_rec.h display_rec.h
+OBJ = read_rec.c display_rec.c main.o 
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)

@@ -1,12 +1,12 @@
 #include <stdio.h>
-// #include "record_struct.h"
+#include "record_struct.h"
 
 #ifndef READ_REC_H
 #define READ_REC_H
 
 /* 
  * readRec()
- * -------------------
+ * ---------
  * Reads the student data from a text file and returns it. 
  * The student data(name and age) is assumed to be stored in csv 
  * format.
