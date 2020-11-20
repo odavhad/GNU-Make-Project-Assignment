@@ -11,9 +11,11 @@
  * The student data(name and age) is assumed to be stored in csv 
  * format.
  * 
- * filename: the name of the text file containing student records
- * data    : the variable to store the records read from text file
+ * filename : the name of the text file containing student records
+ * data     : the variable to store the records read from text file
+ * 
+ * returns  : returns whether the read operation was successful
  */
-void readRec(const char filename[], struct record* data);
+int readRec(const char filename[], struct record* data);
 
 #endif

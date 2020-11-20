@@ -7,11 +7,15 @@
 
 int main(void) {
     char filename[100];
+    int status;
     struct record data = {.length = 0};
 
     printf("Enter the filename: ");
     scanf("%s", filename);
-    readRec(filename, &data);
+    status = readRec(filename, &data);
+    if (status == 0) {
+        return 0;
+    }
     
     printf("Student records:\n");
     displayRec(data);

@@ -5,7 +5,7 @@
 #include "record_struct.h"
 #include "read_rec.h"
 
-void readRec(const char filename[], struct record* data) {
+int readRec(const char filename[], struct record* data) {
     FILE* filepointer;
     char filetext[10000], temp, filedata[200][100];
     int index = 0, tempIndex, length;
@@ -14,7 +14,7 @@ void readRec(const char filename[], struct record* data) {
     filepointer = fopen(filename, "r");
     if (filepointer == NULL) {
         printf("Error opening the specified file.\n");
-        return;
+        return 0;
     }
 
     while (1) {
@@ -51,4 +51,6 @@ void readRec(const char filename[], struct record* data) {
             data->length++;
         }
     }
+
+    return 1;
 }
