@@ -11,7 +11,9 @@
  * filename : the name of the text file containing student records
  * filetext : the variable to store the data read from text file
  * maxlength    : the maximum length of the cipher text
+ * 
+ * returns  : returns whether the read operation was successful
  */
-void readSrc(const char filename[], char* filetext, int maxlength);
+int readSrc(const char filename[], char* filetext, int maxlength);
 
 #endif

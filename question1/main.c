@@ -5,13 +5,22 @@
 
 #define MAX_LENGTH  1000
 
-int main(void) {
+int main(int argc, char* argv[]) {
     char filename[100], filetext[MAX_LENGTH], ciphertext[MAX_LENGTH];
+    int status;
 
-    printf("Enter the filename: ");
-    scanf("%s", filename);
+    if (argc != 2) {
+        printf("Invalid input format.\n");
+        printf("Enter the input in following format:\n");
+        printf("%s filename.txt\n", argv[0]);
+        return -1;
+    } 
+    strcpy(filename, argv[1]);
 
-    readSrc(filename, &filetext, MAX_LENGTH);
+    status = readSrc(filename, &filetext, MAX_LENGTH);
+    if (status == -1) 
+        return -1;
+    
     printf("File Data:\n%s\n", filetext);
 
     convertCipher(filetext, &ciphertext);

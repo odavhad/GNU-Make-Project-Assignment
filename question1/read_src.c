@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "read_src.h"
 
-void readSrc(const char filename[], char* filetext, int maxlength) {
+int readSrc(const char filename[], char* filetext, int maxlength) {
     FILE* filepointer;
     char temp;
     int index = 0;
@@ -9,7 +9,7 @@ void readSrc(const char filename[], char* filetext, int maxlength) {
     filepointer = fopen(filename, "r");
     if (filepointer == NULL) {
         printf("Error opening the specified file.\n");
-        return;
+        return -1;
     }
 
     while (index < maxlength) {
@@ -22,4 +22,6 @@ void readSrc(const char filename[], char* filetext, int maxlength) {
         index++;
     }
     fclose(filepointer);
+
+    return 1;
 }
