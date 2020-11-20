@@ -14,7 +14,7 @@ int readRec(const char filename[], struct record* data) {
     filepointer = fopen(filename, "r");
     if (filepointer == NULL) {
         printf("Error opening the specified file.\n");
-        return 0;
+        return -1;
     }
 
     while (1) {
