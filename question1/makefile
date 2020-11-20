@@ -1,13 +1,21 @@
-CC = gcc
 CFLAGS = -w -g -I.
-DEPS = read_src.h convert_cipher.h display_cipher.h
-OBJ = read_src.c convert_cipher.c display_cipher.c main.c
 
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+default: myencrypt 
 
-myencrypt: $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+myencrypt: read_src.o convert_cipher.o display_cipher.o main.o 
+	gcc -o myencrypt read_src.o convert_cipher.o display_cipher.o main.o $(CFLAGS)
 
-clean:
-	$(RM) myencrypt *.o *~
+read_src.o: read_src.c 
+	gcc -c read_src.c $(CFLAGS)
+
+convert_cipher.o: convert_cipher.c 
+	gcc -c convert_cipher.c $(CFLAGS)
+
+display_cipher.o: display_cipher.c 
+	gcc -c display_cipher.c $(CFLAGS)
+
+main.o: main.c 
+	gcc -c main.c $(CFLAGS)
+
+clean: 
+	rm -rf myencrypt *.o *~

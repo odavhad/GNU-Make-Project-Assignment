@@ -2,16 +2,25 @@
 #include <string.h>
 #include "display_cipher.h"
 
-void displayCipher(char ciphertext[1000], int maxlength, int offset) {
-    int length = strlen(ciphertext);
-    char decryptedtext[maxlength], temp;
-
-    for (int index = 0; index < length; index++) {
-        temp = ciphertext[index];
-        
-        if (temp != 0)
-            decryptedtext[index] = (temp - offset) % 128;
+char _decrypt(char var) {
+    if (var == 10) 
+        return 32;
+    else if (var == 32)
+        return 10;
+    else if (var > 32 && var <= 127) {
+        if (var <= 36) 
+            return var + 118;
+        return var - 5;
     }
+    
+    return var;
+}
 
-    printf("%s\n", decryptedtext);
+void displayCipher(char ciphertext[1000], int maxlength) {
+    char decryptedtext[maxlength];
+
+    for (int index = 0; index < strlen(ciphertext); index++)
+        decryptedtext[index] = _decrypt(ciphertext[index]);
+
+    printf("%s\n", decryptedtext);        
 }

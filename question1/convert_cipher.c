@@ -2,14 +2,21 @@
 #include <string.h>
 #include "convert_cipher.h"
 
-void convertCipher(char textdata[1000], char* ciphertext, int offset) {
-    int length = strlen(textdata), index;
-    char temp;
-
-    for (index = 0; index < length; index++) {
-        temp = textdata[index];
-        
-        if (temp != 0)
-            ciphertext[index] = (temp + offset) % 128;
+char _encrypt(char var) {
+    if (var == 10) 
+        return 32;
+    else if (var == 32)
+        return 10;
+    else if (var > 32 && var <= 127) {
+        if (var >= 123) 
+            return var - 118;
+        return var + 5;
     }
+    
+    return var;
+}
+
+void convertCipher(char textdata[1000], char* ciphertext) {
+    for (int index = 0; index < strlen(textdata); index++)
+        ciphertext[index] = _encrypt(textdata[index]);
 }

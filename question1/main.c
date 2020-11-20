@@ -4,7 +4,6 @@
 #include "display_cipher.h"
 
 #define MAX_LENGTH  1000
-#define OFFSET      5
 
 int main(void) {
     char filename[100], filetext[MAX_LENGTH], ciphertext[MAX_LENGTH];
@@ -15,11 +14,11 @@ int main(void) {
     readSrc(filename, &filetext, MAX_LENGTH);
     printf("File Data:\n%s\n", filetext);
 
-    convertCipher(filetext, &ciphertext, OFFSET);
+    convertCipher(filetext, &ciphertext);
     printf("\nCipher Text:\n%s\n", ciphertext);
     
     printf("\nDecrypted Text:\n");
-    displayCipher(ciphertext, MAX_LENGTH, OFFSET);
+    displayCipher(ciphertext, MAX_LENGTH);
 
     return 0;
 } 
