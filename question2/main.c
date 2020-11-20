@@ -18,12 +18,9 @@ int main(int argc, char* argv[]) {
     } 
     strcpy(filename, argv[1]);
 
-    // printf("Enter the filename: ");
-    // scanf("%s", filename);
     status = readRec(filename, &data);
-    if (status == -1) {
+    if (status == -1) 
         return -1;
-    }
     
     printf("Student records:\n");
     displayRec(data);
